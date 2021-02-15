@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <title>Lullaby</title>
-        <meta charset="utf8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <meta name="title" content="saltyaom.com" />
         <meta name="description" content="Life is but a butterfly's dream" />
@@ -45,7 +45,14 @@
                     'Helvetica Neue', sans-serif;
             }
 
+            html {
+                height: -webkit-fill-available;
+            }
+
             body {
+                display: flex;
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
                 margin: 0;
                 background: #000;
             }
@@ -81,8 +88,7 @@
                 align-items: center;
                 width: 100%;
                 max-width: 640px;
-                min-height: 100vh;
-                min-height: -webkit-fill-available;
+                min-height: 100%;
                 margin: 0 auto;
                 color: #fff;
             }
@@ -160,7 +166,8 @@
                 border-radius: 0.325vw;
             }
 
-            ::selection, ::-webkit-selection {
+            ::selection,
+            ::-webkit-selection {
                 background-color: #ffffff25;
             }
 
@@ -195,7 +202,12 @@
             <h1 id="title">Life is but a butterfly's dream</h1>
 
             <nav id="navigation">
-                <a class="link" href="https://blog.saltyaom.com" title="Web Blog">Blog</a>
+                <a
+                    class="link"
+                    href="https://blog.saltyaom.com"
+                    title="Web Blog"
+                    >Blog</a
+                >
 
                 <a
                     class="link squared"
