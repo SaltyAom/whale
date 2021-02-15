@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lullaby</title>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="title" content="saltyaom.com" />
+        <meta name="description" content="Life is but a butterfly's dream" />
+
+        <meta name="og:title" property="saltyaom.com" />
+        <meta
+            name="og:description"
+            property="Life is but a butterfly's dream"
+        />
+
+        <meta name="og:image" property="https://saltyaom.com/cover.jpg" />
+        <meta name="og:image:width" property="720" />
+        <meta name="og:image:height" property="405" />
+
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐋</text></svg>"
+        />
+
+        <link rel="stylesheet" href="/style.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://blog.saltyaom.com" />
+        <link rel="preconnect" href="https://webring.wonderful.software" />
+
+        <meta name="theme-color" content="#008bff" />
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                    'Helvetica Neue', sans-serif;
+            }
+
+            body {
+                margin: 0;
+                background: #000;
+            }
+
+            #ocean,
+            #blurhash {
+                position: fixed;
+                z-index: -3;
+                display: block;
+                min-width: 100%;
+                min-height: 100vh;
+                filter: blur(32px);
+            }
+
+            #blurhash {
+                z-index: -4;
+            }
+
+            #overlay {
+                position: fixed;
+                z-index: -2;
+                display: block;
+                width: 100%;
+                height: 100vh;
+                background: #00000050;
+            }
+
+            #main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                max-width: 640px;
+                min-height: 100vh;
+                margin: 0 auto;
+                color: #fff;
+            }
+
+            #title {
+                font-size: 32px;
+                font-weight: 300;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            #copyright {
+                display: flex;
+                justify-content: center;
+                position: fixed;
+                bottom: 20px;
+                width: 100%;
+                color: #eee;
+                text-align: center;
+                font-weight: 200;
+                pointer-events: none;
+            }
+
+            .link {
+                display: block;
+                font-size: 21px;
+                color: #ddd;
+                text-decoration: none;
+                font-weight: 300;
+                margin-bottom: 20px;
+                padding: 12px 84px;
+                outline: none;
+                border-radius: 4px;
+                border: 1px solid transparent;
+                transition: border-color 0.2s ease-out,
+                    background-color 0.2s ease-out;
+            }
+
+            .link:hover,
+            .link:focus {
+                color: #fff;
+                background-color: #ffffff20;
+            }
+
+            .link:active {
+                border-color: #ffffff95;
+            }
+
+            .link.squared {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 42px;
+                height: 42px;
+                padding: 0;
+            }
+
+            #navigation {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 480px;
+                padding-bottom: 60px;
+            }
+
+            ::-webkit-scrollbar {
+                width: 0.75vw;
+                background-color: transparent;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: #ffffff95;
+                border-radius: 0.325vw;
+            }
+
+            ::selection, ::-webkit-selection {
+                background-color: #ffffff25;
+            }
+
+            @media (min-width: 768px) {
+                #title {
+                    font-size: 48px;
+                }
+
+                .link {
+                    font-size: 28px;
+                }
+
+                .link.squared {
+                    width: 56px;
+                    height: 56px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <img
+            id="blurhash"
+            src="data:image/png;base64,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"
+        />
+        <div id="overlay"></div>
+        <video id="ocean" autoplay loop muted playsinline>
+            <source src="/ocean_720p.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Main Content -->
+        <main id="main">
+            <h1 id="title">Life is but a butterfly's dream</h1>
+
+            <nav id="navigation">
+                <a class="link" href="https://blog.saltyaom.com" title="Web Blog">Blog</a>
+
+                <a
+                    class="link squared"
+                    href="https://webring.wonderful.software#saltyaom.com"
+                    title="วงแหวนเว็บ"
+                >
+                    <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 416 416"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M53 128.8l-16-8.2a192 192 0 1094.7-88.9l7.1 16.6A174 174 0 1153 128.8z"
+                            fill="currentColor"
+                        ></path>
+                        <path
+                            d="M94.7 92.3L82 126.5 62.6 95.7l-36.4-1.4 23.3-28-9.9-35.1 33.9 13.5 30.3-20.3-2.4 36.4L130 83.3l-35.3 9z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                </a>
+            </nav>
+
+            <p id="copyright">&copy; SaltyAom 2021</p>
+        </main>
+    </body>
+</html>
